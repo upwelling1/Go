@@ -1,0 +1,152 @@
+[
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "Wikipedia – Newton's Laws of Motion",
+    "license": "CC BY-SA 4.0",
+    "translations": {
+      "zh": {
+        "title": "根據牛頓第二運動定律，加速度與下列哪一項成正比？",
+        "options": {
+          "A": "質量",
+          "B": "速度",
+          "C": "作用力",
+          "D": "位移"
+        },
+        "answer": "C",
+        "explanation": "牛頓第二定律指出，加速度與作用在物體上的淨力成正比，與質量成反比。"
+      },
+      "en": {
+        "title": "According to Newton’s Second Law, acceleration is directly proportional to which of the following?",
+        "options": {
+          "A": "Mass",
+          "B": "Velocity",
+          "C": "Applied force",
+          "D": "Displacement"
+        },
+        "answer": "C",
+        "explanation": "Newton’s Second Law states that acceleration is directly proportional to the net force acting on an object."
+      }
+    }
+  },
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "OpenStax – College Physics",
+    "license": "CC BY 4.0",
+    "translations": {
+      "zh": {
+        "title": "下列哪一種能量屬於動能？",
+        "options": {
+          "A": "被拉伸的彈簧",
+          "B": "高速行駛的汽車",
+          "C": "高處的水",
+          "D": "電池中的能量"
+        },
+        "answer": "B",
+        "explanation": "動能是物體因運動而具有的能量，高速行駛的汽車具有明顯動能。"
+      },
+      "en": {
+        "title": "Which of the following is an example of kinetic energy?",
+        "options": {
+          "A": "A stretched spring",
+          "B": "A moving car",
+          "C": "Water stored at a height",
+          "D": "Energy in a battery"
+        },
+        "answer": "B",
+        "explanation": "Kinetic energy is the energy an object has due to its motion."
+      }
+    }
+  },
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "Wikipedia – Laws of Thermodynamics",
+    "license": "CC BY-SA 4.0",
+    "translations": {
+      "zh": {
+        "title": "熱力學第一定律主要描述哪一概念？",
+        "options": {
+          "A": "能量守恆",
+          "B": "熵增加",
+          "C": "熱傳導方向",
+          "D": "絕對零度"
+        },
+        "answer": "A",
+        "explanation": "熱力學第一定律說明能量不會憑空產生或消失，只會轉換形式。"
+      },
+      "en": {
+        "title": "What concept is described by the First Law of Thermodynamics?",
+        "options": {
+          "A": "Conservation of energy",
+          "B": "Increase of entropy",
+          "C": "Direction of heat flow",
+          "D": "Absolute zero"
+        },
+        "answer": "A",
+        "explanation": "The First Law of Thermodynamics describes the conservation of energy."
+      }
+    }
+  },
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "OpenStax – Physics",
+    "license": "CC BY 4.0",
+    "translations": {
+      "zh": {
+        "title": "聲音在空氣中傳播的主要方式為何？",
+        "options": {
+          "A": "電磁波",
+          "B": "橫波",
+          "C": "縱波",
+          "D": "真空波"
+        },
+        "answer": "C",
+        "explanation": "聲音在空氣中是以縱波形式傳播，靠空氣分子振動。"
+      },
+      "en": {
+        "title": "How does sound primarily travel through air?",
+        "options": {
+          "A": "Electromagnetic waves",
+          "B": "Transverse waves",
+          "C": "Longitudinal waves",
+          "D": "Vacuum waves"
+        },
+        "answer": "C",
+        "explanation": "Sound travels through air as longitudinal waves caused by vibrating air molecules."
+      }
+    }
+  },
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "Wikipedia – Electromagnetism",
+    "license": "CC BY-SA 4.0",
+    "translations": {
+      "zh": {
+        "title": "下列哪一現象是由電流產生磁場所造成？",
+        "options": {
+          "A": "靜電吸引",
+          "B": "電磁鐵",
+          "C": "光的折射",
+          "D": "熱膨脹"
+        },
+        "answer": "B",
+        "explanation": "電流通過導線會產生磁場，這是電磁鐵運作的原理。"
+      },
+      "en": {
+        "title": "Which phenomenon results from a magnetic field produced by an electric current?",
+        "options": {
+          "A": "Electrostatic attraction",
+          "B": "Electromagnet",
+          "C": "Refraction of light",
+          "D": "Thermal expansion"
+        },
+        "answer": "B",
+        "explanation": "An electric current creates a magnetic field, which is the basis of electromagnets."
+      }
+    }
+  }
+]
