@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz King</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 id="title">知識王</h1>
+      <button id="langBtn">EN</button>
+    </header>
+
+    <main id="quiz"></main>
+  </div>
+
+  <script>
+    let lang = "zh";
+
+    function toggleLang() {
+      lang = lang === "zh" ? "en" : "zh";
+      document.getElementById("title").textContent = lang === "zh" ? "知識王" : "Quiz King";
+      document.getElementById("langBtn").textContent = lang === "zh" ? "EN" : "中文";
+      loadQuestions();
+    }
+
+    document.getElementById("langBtn").addEventListener("click", toggleLang);
+
+    async function loadQuestions() {
+      const res = await fetch(`/api/questions?lang=${lang}`);
+      const data = await res.json();
+      const container = document.getElementById("quiz");
+      container.innerHTML = "";
+      data.forEach((q) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+          <h2>${q.question}</h2>
+          ${q.choices.map(c => `<button class="choice">${c}</button>`).join("")}
+          <p class="meta">來源：${q.source} ｜ 授權：${q.license}</p>
+        `;
+        container.appendChild(div);
+
+        const btns = div.querySelectorAll(".choice");
+        btns.forEach(b => {
+          b.addEventListener("click", () => {
+            btns.forEach(x => x.disabled = true);
+            b.classList.add(b.textContent === q.answer ? "correct" : "wrong");
+            const exp = document.createElement("p");
+            exp.textContent = q.explanation ? `💡 ${q.explanation}` : "";
+            div.appendChild(exp);
+          });
+        });
+      });
+    }
+
+    loadQuestions();
+  </script>
+</body>
+</html>
