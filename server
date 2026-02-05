@@ -1,0 +1,50 @@
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
+
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static("public"));
+
+const DATA_FILE = path.join(__dirname, "data/questions.json");
+
+// 商用授權檢查
+function isCommercialLicense(license) {
+  if (!license) return false;
+  const l = license.toLowerCase();
+  return !(l.includes("nc") || l.includes("non-commercial") || l.includes("non commercial"));
+}
+
+// 題庫 API：讀取題目
+app.get("/api/questions", (req, res) => {
+  const lang = req.query.lang === "en" ? "en" : "zh";
+  const data = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+  const formatted = data.map(q => ({
+    topic: q.topic,
+    level: q.level,
+    question: lang === "en" ? q.en_question : q.zh_question,
+    choices: lang === "en" ? q.en_choices : q.zh_choices,
+    answer: lang === "en" ? q.en_answer : q.zh_answer,
+    explanation: lang === "en" ? q.en_explain : q.zh_explain,
+    license: q.license,
+    source: q.source
+  }));
+  res.json(formatted);
+});
+
+// 題目上傳（檢查授權）
+app.post("/api/questions", (req, res) => {
+  const newQ = req.body;
+  if (!isCommercialLicense(newQ.license)) {
+    return res.status(400).json({ error: "License forbids commercial use" });
+  }
+  const data = JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+  data.push(newQ);
+  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+  res.json({ success: true });
+});
+
+app.listen(3000, () => console.log("✅ Quiz King running at http://localhost:3000"));
