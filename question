@@ -1,0 +1,30 @@
+[
+  {
+    "topic": "Math",
+    "level": "High School",
+    "zh_question": "設 f(x)=x^2+3x+2，求 f(1) = ?",
+    "en_question": "Given f(x)=x^2+3x+2, compute f(1).",
+    "zh_choices": ["1", "6", "4", "5"],
+    "en_choices": ["1", "6", "4", "5"],
+    "zh_answer": "6",
+    "en_answer": "6",
+    "zh_explain": "代入 x=1，1+3+2=6",
+    "en_explain": "Plug in x=1: 1+3+2=6",
+    "license": "CC-BY-4.0",
+    "source": "Seed example"
+  },
+  {
+    "topic": "Geography",
+    "level": "Middle School",
+    "zh_question": "世界上面積最大的國家是？",
+    "en_question": "Which country has the largest land area in the world?",
+    "zh_choices": ["中國", "美國", "俄羅斯", "加拿大"],
+    "en_choices": ["China", "United States", "Russia", "Canada"],
+    "zh_answer": "俄羅斯",
+    "en_answer": "Russia",
+    "zh_explain": "依面積，俄羅斯最大",
+    "en_explain": "Russia has the largest land area.",
+    "license": "CC0",
+    "source": "Seed example"
+  }
+]
