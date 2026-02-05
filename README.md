@@ -185,3 +185,62 @@ window.backHome=()=>show("home");
 </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>題海 Go｜管理後台</title>
+<style>
+body{background:#0b0d13;color:#fff;font-family:sans-serif}
+.card{max-width:500px;margin:60px auto;background:#141824;padding:24px;border-radius:16px}
+button,input{width:100%;padding:12px;margin-bottom:12px}
+</style>
+</head>
+<body>
+
+<div class="card" id="login">
+  <h2>管理員登入</h2>
+  <input id="pwd" type="password">
+  <button onclick="login()">登入</button>
+</div>
+
+<div class="card" id="panel" style="display:none">
+  <h2>排行榜管理</h2>
+  <ol id="list"></ol>
+  <button onclick="clearAll()">清空排行榜</button>
+</div>
+
+<script type="module">
+import { db } from "./firebase.js";
+import { collection,getDocs,deleteDoc,doc }
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const ADMIN_PASSWORD="tihai-admin-2026";
+
+window.login=async()=>{
+  if(pwd.value!==ADMIN_PASSWORD) return alert("密碼錯誤");
+  login.style.display="none";
+  panel.style.display="block";
+  load();
+};
+
+async function load(){
+  list.innerHTML="";
+  const snap=await getDocs(collection(db,"scores"));
+  snap.forEach(d=>{
+    const li=document.createElement("li");
+    li.textContent=`${d.data().player} - ${d.data().score}`;
+    list.appendChild(li);
+  });
+}
+
+window.clearAll=async()=>{
+  if(!confirm("確定要清空排行榜？")) return;
+  const snap=await getDocs(collection(db,"scores"));
+  await Promise.all(snap.docs.map(d=>deleteDoc(doc(db,"scores",d.id))));
+  load();
+};
+</script>
+</body>
+</html>
