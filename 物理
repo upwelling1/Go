@@ -150,3 +150,155 @@
     }
   }
 ]
+[
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "Wikipedia – Work (Physics)",
+    "license": "CC BY-SA 4.0",
+    "translations": {
+      "zh": {
+        "title": "在物理學中，當力與位移方向相同時，所做的功為何？",
+        "options": {
+          "A": "零",
+          "B": "負值",
+          "C": "最大",
+          "D": "與質量無關"
+        },
+        "answer": "C",
+        "explanation": "當力與位移方向相同時，功的計算結果為最大值。"
+      },
+      "en": {
+        "title": "In physics, when force and displacement are in the same direction, the work done is:",
+        "options": {
+          "A": "Zero",
+          "B": "Negative",
+          "C": "Maximum",
+          "D": "Independent of mass"
+        },
+        "answer": "C",
+        "explanation": "Work is maximized when force and displacement act in the same direction."
+      }
+    }
+  },
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "OpenStax – College Physics",
+    "license": "CC BY 4.0",
+    "translations": {
+      "zh": {
+        "title": "電壓的單位為下列哪一項？",
+        "options": {
+          "A": "安培",
+          "B": "瓦特",
+          "C": "歐姆",
+          "D": "伏特"
+        },
+        "answer": "D",
+        "explanation": "電壓的國際單位是伏特（Volt）。"
+      },
+      "en": {
+        "title": "What is the SI unit of voltage?",
+        "options": {
+          "A": "Ampere",
+          "B": "Watt",
+          "C": "Ohm",
+          "D": "Volt"
+        },
+        "answer": "D",
+        "explanation": "The SI unit of voltage is the volt."
+      }
+    }
+  },
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "Wikipedia – Reflection (Physics)",
+    "license": "CC BY-SA 4.0",
+    "translations": {
+      "zh": {
+        "title": "光的反射定律中，入射角與哪一個角度相等？",
+        "options": {
+          "A": "折射角",
+          "B": "反射角",
+          "C": "臨界角",
+          "D": "全反射角"
+        },
+        "answer": "B",
+        "explanation": "根據反射定律，入射角等於反射角。"
+      },
+      "en": {
+        "title": "According to the law of reflection, the angle of incidence equals which angle?",
+        "options": {
+          "A": "Angle of refraction",
+          "B": "Angle of reflection",
+          "C": "Critical angle",
+          "D": "Total internal reflection angle"
+        },
+        "answer": "B",
+        "explanation": "The law of reflection states that the angle of incidence equals the angle of reflection."
+      }
+    }
+  },
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "OpenStax – Physics",
+    "license": "CC BY 4.0",
+    "translations": {
+      "zh": {
+        "title": "下列哪一因素會影響物體的重力位能？",
+        "options": {
+          "A": "顏色",
+          "B": "高度",
+          "C": "形狀",
+          "D": "溫度"
+        },
+        "answer": "B",
+        "explanation": "重力位能與物體的高度與質量有關。"
+      },
+      "en": {
+        "title": "Which factor affects an object’s gravitational potential energy?",
+        "options": {
+          "A": "Color",
+          "B": "Height",
+          "C": "Shape",
+          "D": "Temperature"
+        },
+        "answer": "B",
+        "explanation": "Gravitational potential energy depends on height and mass."
+      }
+    }
+  },
+  {
+    "category": "physics",
+    "difficulty": 3,
+    "source": "Wikipedia – Ohm's Law",
+    "license": "CC BY-SA 4.0",
+    "translations": {
+      "zh": {
+        "title": "依據歐姆定律，電流與哪一項成正比？",
+        "options": {
+          "A": "電阻",
+          "B": "電壓",
+          "C": "功率",
+          "D": "能量"
+        },
+        "answer": "B",
+        "explanation": "歐姆定律指出，在電阻固定下，電流與電壓成正比。"
+      },
+      "en": {
+        "title": "According to Ohm’s Law, electric current is directly proportional to which quantity?",
+        "options": {
+          "A": "Resistance",
+          "B": "Voltage",
+          "C": "Power",
+          "D": "Energy"
+        },
+        "answer": "B",
+        "explanation": "Ohm’s Law states that current is directly proportional to voltage when resistance is constant."
+      }
+    }
+  }
+]
