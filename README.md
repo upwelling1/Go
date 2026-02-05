@@ -106,6 +106,7 @@ button{
 <div class="card hidden" id="rank">
   <h2>🏆 排行榜</h2>
   <ol id="rankList"></ol>
+  <button class="secondary" onclick="clearRank()">清空排行榜</button>
   <button class="secondary" onclick="backHome()">回首頁</button>
 </div>
 
@@ -219,6 +220,13 @@ function show(id){
   $(id).classList.remove("hidden");
 }
 function backHome(){show("home")}
+  function clearRank(){
+  if(confirm("確定要清空排行榜嗎？")){
+    localStorage.removeItem("tihai");
+    rankList.innerHTML = "";
+    alert("排行榜已清空");
+  }
+}
 </script>
 
 </body>
