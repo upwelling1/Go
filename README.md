@@ -6,7 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
+  /* ===== 答題即時回饋 ===== */
+.option.correct{
+  background:linear-gradient(135deg,#3ddc97,#1fa774) !important;
+  box-shadow:0 0 20px rgba(61,220,151,.6);
+}
+
+.option.wrong{
+  background:linear-gradient(135deg,#ff5f6d,#d7263d) !important;
+  box-shadow:0 0 20px rgba(255,95,109,.6);
+}
+
+/* 選後鎖定按鈕 */
+.option.disabled{
+  pointer-events:none;
+  opacity:.85;
+}body{
   font-family:sans-serif;
   background:#f4f4f4;
   margin:0;
@@ -209,10 +224,25 @@ function nextQ(){
     const b=document.createElement("button");
     b.className="option";
     b.innerText=text;
-    b.onclick=()=>{
-      if(i===q.a) score++;
-      nextQ();
-    };
+    b.onclick = () => {
+  const allBtns = document.querySelectorAll(".option");
+
+  // 全部鎖定
+  allBtns.forEach(btn => btn.classList.add("disabled"));
+
+  if(i === q.a){
+    score++;
+    b.classList.add("correct");   // ✅ 答對綠
+  }else{
+    b.classList.add("wrong");     // ❌ 答錯紅
+    allBtns[q.a].classList.add("correct"); // 顯示正解
+  }
+
+  // 0.7 秒後跳下一題
+  setTimeout(() => {
+    nextQ();
+  }, 700);
+};
     box.appendChild(b);
   });
 }
