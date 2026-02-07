@@ -238,13 +238,24 @@ let pool = [];
 let idx = 0;
 let score = 0;
 let time = 30;
-let timer;
-/* ===== 畫面切換 ===== */
+let timer;let selectedLang = null;
+  /* ===== 畫面切換 ===== */
 function show(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
+/* ✅ 選擇語言 */
+function selectLang(lang){
+  selectedLang = lang;
 
+  // 所有語言按鈕變淡
+  document.querySelectorAll("#home .lang-btn").forEach(b=>{
+    b.style.opacity = 0.5;
+  });
+
+  // 被點到的按鈕亮起
+  event.target.style.opacity = 1;
+}
 /* ===== 開始遊戲 ===== */
 function startGame(lang){
   pool=[...QUESTION_BANK[lang]].sort(()=>Math.random()-0.5);
