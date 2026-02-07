@@ -6,65 +6,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-  /* ===== 答題即時回饋 ===== */
+/* ===== 全站背景（高級感） ===== */
+body{
+  font-family:"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top, #2a2f4f 0%, #0f1226 45%, #070814 100%);
+  color:#eaeaf0;
+}
+
+/* ===== 畫面容器（玻璃擬態） ===== */
+.screen{
+  display:none;
+  padding:24px;
+  max-width:480px;
+  margin:40px auto;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(14px);
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,.45);
+}
+.screen.active{display:block}
+
+/* ===== 標題 ===== */
+h1{
+  text-align:center;
+  font-size:34px;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,#6cf,#a6f);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+h2,h3{text-align:center;font-weight:500}
+
+/* ===== 按鈕 ===== */
+button{
+  padding:12px 18px;
+  margin:6px;
+  font-size:16px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  color:#fff;
+  background:linear-gradient(135deg,#4facfe,#7b6cff);
+  box-shadow:0 8px 20px rgba(79,172,254,.35);
+  transition:.2s;
+}
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(79,172,254,.55);
+}
+
+/* ===== 題目選項 ===== */
+.option{
+  width:100%;
+  margin:10px 0;
+  background:rgba(255,255,255,0.08);
+}
+.option:hover{background:rgba(255,255,255,0.18)}
+
+/* 即時回饋 */
 .option.correct{
   background:linear-gradient(135deg,#3ddc97,#1fa774) !important;
   box-shadow:0 0 20px rgba(61,220,151,.6);
 }
-
 .option.wrong{
   background:linear-gradient(135deg,#ff5f6d,#d7263d) !important;
   box-shadow:0 0 20px rgba(255,95,109,.6);
 }
-
-/* 選後鎖定按鈕 */
 .option.disabled{
   pointer-events:none;
-  opacity:.85;
-}body{
-  font-family:sans-serif;
-  background:#f4f4f4;
-  margin:0;
-}
-.screen{
-  display:none;
-  padding:20px;
-}
-.screen.active{
-  display:block;
-}
-h1,h2{
-  text-align:center;
-}
-button{
-  padding:10px 16px;
-  margin:6px;
-  font-size:16px;
-}
-.option{
-  display:block;
-  width:100%;
-  margin:8px 0;
-}
-#timer{
-  font-size:20px;
-  text-align:center;
-  margin:10px;
+  opacity:.9;
 }
 
-/* 排行榜樣式 */
+/* ===== 計時器 ===== */
+#timer{
+  font-size:26px;
+  text-align:center;
+  margin-bottom:12px;
+  color:#7cf;
+  font-weight:600;
+}
+
+/* ===== 輸入框 ===== */
+input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  margin:10px 0;
+  font-size:16px;
+  background:rgba(255,255,255,.15);
+  color:#fff;
+}
+input::placeholder{color:#ccc}
+
+/* ===== 排行榜 ===== */
 .rank-num{
-  color:#ff5722;
-  font-weight:bold;
+  color:#ffb84d;
+  font-weight:700;
   margin-right:6px;
 }
-.rank-name{
-  color:#222;
-}
-.rank-score{
-  color:#666;
-  margin-left:4px;
-}
+.rank-name{color:#fff}
+.rank-score{color:#aaa;margin-left:6px}
 </style>
 </head>
 
@@ -96,12 +141,10 @@ button{
     <button onclick="saveRank()">送出成績</button>
     <button onclick="backHome()">回首頁</button>
   </div>
-
   <h3>排行榜</h3>
   <ol id="rankList"></ol>
 </div>
 
-<!-- ===== 題庫 ===== -->
 <script>
 /* ========= 題庫（100 題） ========= */
 window.QUESTION_BANK = {
@@ -186,22 +229,18 @@ window.QUESTION_BANK = {
 </script>
 
 
-<!-- ===== 遊戲邏輯 ===== -->
-<script>
-let pool=[], idx=0, score=0, time=30, timer;
+let pool=[],idx=0,score=0,time=30,timer;
 
+/* ===== 畫面切換 ===== */
 function show(id){
-  document.querySelectorAll(".screen")
-    .forEach(s=>s.classList.remove("active"));
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
 
+/* ===== 開始遊戲 ===== */
 function startGame(lang){
-  pool=[...window.QUESTION_BANK[lang]]
-    .sort(()=>Math.random()-0.5);
-  idx=0;
-  score=0;
-  time=30;
+  pool=[...QUESTION_BANK[lang]].sort(()=>Math.random()-0.5);
+  idx=0; score=0; time=30;
   show("game");
   nextQ();
   timer=setInterval(()=>{
@@ -211,11 +250,9 @@ function startGame(lang){
   },1000);
 }
 
+/* ===== 下一題（含即時回饋） ===== */
 function nextQ(){
-  if(idx>=pool.length){
-    endGame();
-    return;
-  }
+  if(idx>=pool.length){ endGame(); return; }
   const q=pool[idx++];
   document.getElementById("question").innerText=q.q;
   const box=document.getElementById("options");
@@ -224,29 +261,21 @@ function nextQ(){
     const b=document.createElement("button");
     b.className="option";
     b.innerText=text;
-    b.onclick = () => {
-  const allBtns = document.querySelectorAll(".option");
-
-  // 全部鎖定
-  allBtns.forEach(btn => btn.classList.add("disabled"));
-
-  if(i === q.a){
-    score++;
-    b.classList.add("correct");   // ✅ 答對綠
-  }else{
-    b.classList.add("wrong");     // ❌ 答錯紅
-    allBtns[q.a].classList.add("correct"); // 顯示正解
-  }
-
-  // 0.7 秒後跳下一題
-  setTimeout(() => {
-    nextQ();
-  }, 700);
-};
+    b.onclick=()=>{
+      const btns=document.querySelectorAll(".option");
+      btns.forEach(x=>x.classList.add("disabled"));
+      if(i===q.a){ score++; b.classList.add("correct"); }
+      else{
+        b.classList.add("wrong");
+        btns[q.a].classList.add("correct");
+      }
+      setTimeout(nextQ,700);
+    };
     box.appendChild(b);
   });
 }
 
+/* ===== 結束 ===== */
 function endGame(){
   clearInterval(timer);
   show("result");
@@ -254,8 +283,9 @@ function endGame(){
   showRank();
 }
 
+/* ===== 排行榜 ===== */
 function saveRank(){
-  const name=document.getElementById("nameInput").value || "無名";
+  const name=document.getElementById("nameInput").value||"無名";
   const list=JSON.parse(localStorage.getItem("tihai")||"[]");
   list.push({name,score});
   list.sort((a,b)=>b.score-a.score);
@@ -272,15 +302,12 @@ function showRank(){
     li.innerHTML=`
       <span class="rank-num">${i+1}</span>
       <span class="rank-name">${r.name}</span>
-      <span class="rank-score">- ${r.score} 分</span>
-    `;
+      <span class="rank-score">- ${r.score} 分</span>`;
     ol.appendChild(li);
   });
 }
 
-function backHome(){
-  show("home");
-}
+function backHome(){ show("home"); }
 </script>
 
 </body>
