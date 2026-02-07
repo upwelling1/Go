@@ -220,12 +220,7 @@ function show(id){
   $(id).classList.remove("hidden");
 }
 function backHome(){show("home")}
-  function clearRank(){
-  if(confirm("確定要清空排行榜嗎？")){
-    localStorage.removeItem("tihai");
-    rankList.innerHTML = "";
-    alert("排行榜已清空");
-  }
+ 
 }
 </script>
 
