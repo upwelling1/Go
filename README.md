@@ -116,7 +116,9 @@ input::placeholder{color:#ccc}
 <body>
 
 <!-- ===== 首頁 ===== -->
-<div id="home" class="screen active">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1492265884971514"
+     crossorigin="anonymous"></script>
+     <div id="home" class="screen active">
   <h1>題海 Go</h1>
   <p style="text-align:center">選擇語言開始</p>
  <div style="text-align:center">
