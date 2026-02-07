@@ -123,6 +123,11 @@ input::placeholder{color:#ccc}
     <button onclick="startGame('zh')">中文</button>
     <button onclick="startGame('en')">English</button>
   </div>
+
+  <!-- ✅ 新增開始鍵 -->
+  <div style="text-align:center;margin-top:20px">
+    <button onclick="startGame()">開始遊戲</button>
+  </div>
 </div>
 
 <!-- ===== 遊戲畫面 ===== -->
