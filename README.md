@@ -119,15 +119,14 @@ input::placeholder{color:#ccc}
 <div id="home" class="screen active">
   <h1>題海 Go</h1>
   <p style="text-align:center">選擇語言開始</p>
-  <div style="text-align:center">
-    <button onclick="startGame('zh')">中文</button>
-    <button onclick="startGame('en')">English</button>
-  </div>
+ <div style="text-align:center">
+  <button class="lang-btn" onclick="selectLang('zh')">中文</button>
+  <button class="lang-btn" onclick="selectLang('en')">English</button>
+</div>
 
-  <!-- ✅ 新增開始鍵 -->
-  <div style="text-align:center;margin-top:20px">
-    <button onclick="startGame()">開始遊戲</button>
-  </div>
+<div style="text-align:center;margin-top:20px">
+  <button onclick="startGame()">開始遊戲</button>
+</div>
 </div>
 
 <!-- ===== 遊戲畫面 ===== -->
@@ -283,7 +282,7 @@ function nextQ(){
     b.onclick=()=>{
       const btns=document.querySelectorAll(".option");
       btns.forEach(x=>x.classList.add("disabled"));
-      if(i===q.a){ score+＝ 10; b.classList.add("correct"); }
+      if(i===q.a){ score += 10; b.classList.add("correct"); }
       else{
         b.classList.add("wrong");
         btns[q.a].classList.add("correct");
