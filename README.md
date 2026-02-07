@@ -228,7 +228,12 @@ window.QUESTION_BANK = {
 };
 </script>
 
-</script>
+<script>
+let pool = [];
+let idx = 0;
+let score = 0;
+let time = 30;
+let timer;
 /* ===== 畫面切換 ===== */
 function show(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
@@ -262,7 +267,7 @@ function nextQ(){
     b.onclick=()=>{
       const btns=document.querySelectorAll(".option");
       btns.forEach(x=>x.classList.add("disabled"));
-      if(i===q.a){ score++; b.classList.add("correct"); }
+      if(i===q.a){ score+＝ 10; b.classList.add("correct"); }
       else{
         b.classList.add("wrong");
         btns[q.a].classList.add("correct");
