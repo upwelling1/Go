@@ -256,18 +256,26 @@ function selectLang(lang){
   event.target.style.opacity = 1;
 }
 /* ===== 開始遊戲 ===== */
-function startGame(lang){
-  pool=[...QUESTION_BANK[lang]].sort(()=>Math.random()-0.5);
-  idx=0; score=0; time=30;
+function startGame(){
+  if(!selectedLang){
+    alert("請先選擇語言");
+    return;
+  }
+
+  pool = [...QUESTION_BANK[selectedLang]].sort(()=>Math.random()-0.5);
+  idx = 0;
+  score = 0;
+  time = 30;
+
   show("game");
   nextQ();
-  timer=setInterval(()=>{
+
+  timer = setInterval(()=>{
     time--;
-    document.getElementById("timer").innerText=time;
-    if(time<=0) endGame();
+    document.getElementById("timer").innerText = time;
+    if(time <= 0) endGame();
   },1000);
 }
-
 /* ===== 下一題（含即時回饋） ===== */
 function nextQ(){
   if(idx>=pool.length){ endGame(); return; }
