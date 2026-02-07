@@ -228,9 +228,7 @@ window.QUESTION_BANK = {
 };
 </script>
 
-
-let pool=[],idx=0,score=0,time=30,timer;
-
+</script>
 /* ===== 畫面切換 ===== */
 function show(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
