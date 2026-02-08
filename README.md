@@ -10,32 +10,28 @@
     crossorigin="anonymous"></script>
 
   <style>
-    /* 你現在的所有 CSS 全部搬進來 */
-  </style>
-</head>
-<style>
-/* ===== 全站背景（高級感） ===== */
-body{
-  font-family:"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
-  margin:0;
-  min-height:100vh;
-  background:
-    radial-gradient(circle at top, #2a2f4f 0%, #0f1226 45%, #070814 100%);
-  color:#eaeaf0;
-}
+    /* ===== 全站背景（高級感） ===== */
+    body{
+      font-family:"Segoe UI","PingFang TC","Noto Sans TC",sans-serif;
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at top, #2a2f4f 0%, #0f1226 45%, #070814 100%);
+      color:#eaeaf0;
+    }
 
-/* ===== 畫面容器（玻璃擬態） ===== */
-.screen{
-  display:none;
-  padding:24px;
-  max-width:480px;
-  margin:40px auto;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(14px);
-  border-radius:18px;
-  box-shadow:0 20px 40px rgba(0,0,0,.45);
-}
-.screen.active{display:block}
+    /* ===== 畫面容器（玻璃擬態） ===== */
+    .screen{
+      display:none;
+      padding:24px;
+      max-width:480px;
+      margin:40px auto;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter:blur(14px);
+      border-radius:18px;
+      box-shadow:0 20px 40px rgba(0,0,0,.45);
+    }
+    .screen.active{display:block}
 
 /* ===== 標題 ===== */
 h1{
@@ -118,7 +114,7 @@ input::placeholder{color:#ccc}
 }
 .rank-name{color:#fff}
 .rank-score{color:#aaa;margin-left:6px}
-</style>
+ </style>
 </head>
 
 <body>
