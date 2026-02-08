@@ -137,18 +137,20 @@ input::placeholder{color:#ccc}
 <div style="text-align:center;margin-top:20px">
   <button onclick="startGame()">開始遊戲</button>
 </div>
-</div>
-<!-- 廣告區 -->
-<ins class="adsbygoogle"
-     style="display:block; margin:20px auto"
-     data-ad-client="ca-pub-1492265884971514"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+<div id="home" class="screen active">
+   <!-- ✅ 廣告放這裡 -->
+  <ins class="adsbygoogle"
+       style="display:block; margin:20px auto"
+       data-ad-client="ca-pub-1492265884971514"
+       data-ad-slot="1234567890"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
 
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
 <!-- ===== 遊戲畫面 ===== -->
 <div id="game" class="screen">
   <div id="timer">30</div>
