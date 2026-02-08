@@ -116,8 +116,7 @@ input::placeholder{color:#ccc}
 <body>
 
 <!-- ===== 首頁 ===== -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1492265884971514"
-     crossorigin="anonymous"></script>
+
      <div id="home" class="screen active">
   <h1>題海 Go</h1>
   <p style="text-align:center">選擇語言開始</p>
@@ -130,7 +129,17 @@ input::placeholder{color:#ccc}
   <button onclick="startGame()">開始遊戲</button>
 </div>
 </div>
+<!-- 廣告區 -->
+<ins class="adsbygoogle"
+     style="display:block; margin:20px auto"
+     data-ad-client="ca-pub-1492265884971514"
+     data-ad-slot="1234567890"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <!-- ===== 遊戲畫面 ===== -->
 <div id="game" class="screen">
   <div id="timer">30</div>
