@@ -10,7 +10,7 @@
     crossorigin="anonymous"></script>
 
   <style>
-    /* 所有 CSS 都放這裡 */
+    /* 你現在的所有 CSS 全部搬進來 */
   </style>
 </head>
 <style>
