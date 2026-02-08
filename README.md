@@ -5,13 +5,12 @@
   <title>題海 Go</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ✅ 一定要有 -->
   <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1492265884971514"
     crossorigin="anonymous"></script>
 
   <style>
-    ...
+    /* 所有 CSS 都放這裡 */
   </style>
 </head>
 <style>
@@ -126,19 +125,19 @@ input::placeholder{color:#ccc}
 
 <!-- ===== 首頁 ===== -->
 
-     <div id="home" class="screen active">
+ <div id="home" class="screen active">
   <h1>題海 Go</h1>
-  <p style="text-align:center">選擇語言開始</p>
- <div style="text-align:center">
-  <button class="lang-btn" onclick="selectLang('zh')">中文</button>
-  <button class="lang-btn" onclick="selectLang('en')">English</button>
-</div>
 
-<div style="text-align:center;margin-top:20px">
-  <button onclick="startGame()">開始遊戲</button>
-</div>
-<div id="home" class="screen active">
-   <!-- ✅ 廣告放這裡 -->
+  <div style="text-align:center">
+    <button class="lang-btn" onclick="selectLang(event,'zh')">中文</button>
+    <button class="lang-btn" onclick="selectLang(event,'en')">English</button>
+  </div>
+
+  <div style="text-align:center;margin-top:20px">
+    <button onclick="startGame()">開始遊戲</button>
+  </div>
+
+  <!-- ✅ 廣告就在這裡（不要再包一個 home） -->
   <ins class="adsbygoogle"
        style="display:block; margin:20px auto"
        data-ad-client="ca-pub-1492265884971514"
